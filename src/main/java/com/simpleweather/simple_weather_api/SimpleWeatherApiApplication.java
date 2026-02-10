@@ -10,4 +10,8 @@ public class SimpleWeatherApiApplication {
 		SpringApplication.run(SimpleWeatherApiApplication.class, args);
 	}
 
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 }
