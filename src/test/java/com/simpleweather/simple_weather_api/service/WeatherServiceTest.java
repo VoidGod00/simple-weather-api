@@ -47,7 +47,7 @@ class WeatherServiceTest {
 
     @Test
     void getWeather_ShouldReturnCachedData_WhenPresentInDB() {
-        // GIVEN
+        //
         String pincode = "411014";
         LocalDate date = LocalDate.of(2020, 10, 15);
         String cachedJson = "{\"temp\": 25.0, \"source\": \"cache\"}";
@@ -61,10 +61,10 @@ class WeatherServiceTest {
         when(weatherRepo.findByPincodeAndForDate(pincode, date))
                 .thenReturn(Optional.of(mockData));
 
-        // WHEN
+
         String result = weatherService.getWeather(pincode, date);
 
-        // THEN
+
         assertEquals(cachedJson, result);
 
         // CRITICAL: Verify that the External API was NEVER called
@@ -73,25 +73,24 @@ class WeatherServiceTest {
 
     @Test
     void getWeather_ShouldFetchFromApiAndSave_WhenNotInDB() {
-        // GIVEN
         String pincode = "411014";
         LocalDate date = LocalDate.of(2020, 10, 15);
         String apiResponse = "{\"temp\": 30.0}";
 
-        // 1. Mock DB returning empty (Cache Miss)
+        // Mock DB returning empty (Cache Miss)
         when(weatherRepo.findByPincodeAndForDate(pincode, date)).thenReturn(Optional.empty());
 
-        // 2. Mock Location Resolution (Assume location already exists in DB for simplicity)
+        // Mock Location Resolution (Assume location already exists in DB for simplicity)
         Location mockLocation = new Location(pincode, 18.52, 73.85);
         when(locationRepo.findByPincode(pincode)).thenReturn(Optional.of(mockLocation));
 
-        // 3. Mock the External Weather API call
+        // Mock the External Weather API call
         when(restTemplate.getForObject(anyString(), eq(String.class))).thenReturn(apiResponse);
 
-        // WHEN
+
         String result = weatherService.getWeather(pincode, date);
 
-        // THEN
+
         assertEquals(apiResponse, result);
 
         // Verify that we tried to SAVE the new data to DB
