@@ -71,6 +71,9 @@ public class WeatherService {
             var newLoc = new Location(pincode, root.path("lat").asDouble(), root.path("lon").asDouble());
             return locationRepo.save(newLoc);
         } catch (Exception e) {
+            System.err.println("API Call Failed: " + e.getMessage());
+            e.printStackTrace();
+
             throw new RuntimeException("Invalid Pincode");
         }
     }
