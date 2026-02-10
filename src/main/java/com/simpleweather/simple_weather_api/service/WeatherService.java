@@ -3,14 +3,12 @@ import com.simpleweather.simple_weather_api.model.Location;
 import com.simpleweather.simple_weather_api.model.WeatherData;
 import com.simpleweather.simple_weather_api.repository.LocationRepository;
 import com.simpleweather.simple_weather_api.repository.WeatherDataRepository;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 @Service
 public class WeatherService {
