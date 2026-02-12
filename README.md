@@ -3,10 +3,10 @@
 A robust RESTful API built with **Java 21** and **Spring Boot** that provides weather information for a specific PIN code and date. It features an optimized caching mechanism using **MySQL** to minimize external API calls, adhering to strict TDD (Test Driven Development) principles.
 
 ## 🚀 Live Demo
-**Base URL:** `https://<YOUR-RENDER-APP-NAME>.onrender.com`
+**Base URL:** `https://simple-weather-api-rh0l.onrender.com`
 
 **Sample Request:**
-`GET /api/weather?pincode=411014&for_date=2020-10-15`
+`GET https://simple-weather-api-rh0l.onrender.com/api/weather?pincode=411014&for_date=2020-10-15`
 
 ---
 
@@ -44,7 +44,7 @@ A robust RESTful API built with **Java 21** and **Spring Boot** that provides we
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/YOUR_USERNAME/simple-weather-api.git](https://github.com/YOUR_USERNAME/simple-weather-api.git)
+git clone [https://github.com/VoidGod00/simple-weather-api.git](https://github.com/VoidGod00/simple-weather-api.git)
 cd simple-weather-api
 
 ```
@@ -181,9 +181,5 @@ To build and run using Docker:
 ```bash
 docker build -t weather-api .
 docker run -p 8080:8080 weather-api
-
-```
-
-```
 
 ```
