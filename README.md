@@ -2,6 +2,8 @@
 
 A robust RESTful API built with **Java 21** and **Spring Boot** that provides weather information for a specific PIN code and date. It features an optimized caching mechanism using **MySQL** to minimize external API calls, adhering to strict TDD (Test Driven Development) principles.
 
+***NOTE**=I am using render to deploy this project and it have a limitation that is "Your free instance will spin down with inactivity, which can delay requests by 50 seconds or more" due to which it is taking so much time to test in postman.
+
 ## 🚀 Live Demo
 **Base URL:** `https://simple-weather-api-rh0l.onrender.com`
 
